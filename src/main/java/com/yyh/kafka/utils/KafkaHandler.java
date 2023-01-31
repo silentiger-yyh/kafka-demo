@@ -47,7 +47,7 @@ public class KafkaHandler {
         List<LzWsdData> lzWsdDataList = new ArrayList<>();
         // 收到消息后发送到上海宝信
         for (String msg : records) {
-            producerTemplate.send(tarTopic, msg);
+//            producerTemplate.send(tarTopic, msg);
             LzWsdData lzWsdData = new LzWsdData();
             lzWsdData.setMessage(msg);
             lzWsdData.setConsumTime(dateStr);

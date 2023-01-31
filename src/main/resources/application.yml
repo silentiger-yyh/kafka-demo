@@ -1,17 +1,18 @@
 
 server:
-  port: 9982
+  port: 9980
 
 spring:
   datasource:
-    url: jdbc:mysql://10.162.33.202/lz_wsd_data?charset=UTF-8&locale=en_US.UTF-8&timezone=UTC-8
+    url: jdbc:mysql://127.0.0.1:3306/lz_wsd_data?charset=UTF-8&locale=en_US.UTF-8&timezone=UTC-8
+#    url: jdbc:mysql://10.108.128.201:3306/sil_data?charset=UTF-8&locale=en_US.UTF-8&timezone=UTC-8
     username: root
     password: ontoweb
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   kafka:
     producer:
-      bootstrap-server: 10.162.33.202:9092
+      bootstrap-server: 172.16.135.168:9092
       retries: 3
       batch-size: 16384  # 批量上限，超出发送
       buffer-memory: 33554432
@@ -19,7 +20,7 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       linger-ms: 10000  # 超时发送
     consumer:
-      bootstrap-server: 10.162.33.202:9092
+      bootstrap-server: 172.16.135.168:9092
       group-id: test
       auto-offset-reset: earliest
       enable-auto-commit: true
@@ -29,7 +30,7 @@ spring:
       max-poll-records: 10000  # 批量消费消息数量上限
     topics:
       org-topic: lz_wsd_data
-      tar-topic: wg_zw_fgs
+      tar-topic: sil_data
 
 mybatis-plus:
   global-config:

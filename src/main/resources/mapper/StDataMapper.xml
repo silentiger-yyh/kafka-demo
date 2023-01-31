@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyh.kafka.mapper.StDataMapper">
+
+
+    <select id="getAllData" resultType="java.util.HashMap">
+        SELECT dept_id, signal_unique_code, tag_name,equipment_code,channel_id,`value`,time_stamp FROM `nine_code_table` AS code
+        INNER JOIN `st_data` AS data ON code.tag_name = data.channel_name
+    </select>
+</mapper>
